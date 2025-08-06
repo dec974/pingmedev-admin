@@ -43,6 +43,7 @@ const DashboardLayout = ({ children }) => {
             <ul>
               <li><a href="/" className={styles.navLink}>🏠 Dashboard</a></li>
               <li><a href="/users" className={styles.navLink}>👥 Users</a></li>
+              <li><a href="/languages" className={styles.navLink}>🌐 Languages</a></li>
               <li><a href="/messages" className={styles.navLink}>💬 Messages</a></li>
               <li><a href="/analytics" className={styles.navLink}>📊 Analytics</a></li>
               <li><a href="/settings" className={styles.navLink}>⚙️ Settings</a></li>

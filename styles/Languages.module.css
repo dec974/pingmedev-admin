@@ -1,0 +1,35 @@
+.languagesContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.languageItem {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.languageItem:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.iconContainer {
+    margin-bottom: 10px;
+}
+
+.languageIcon {
+    font-size: 48px;
+    color: #333;
+}
+
+.languageItem h3 {
+    margin: 0;
+    color: #333;
+    font-size: 18px;
+}

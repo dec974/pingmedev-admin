@@ -1,9 +1,6 @@
 import { useState, useEffect } from 'react';
 import styles from '../styles/Languages.module.css';
-import * as SiIcons from 'react-icons/si';
-import * as FaIcons from 'react-icons/fa6';
-import * as DiIcons from 'react-icons/di';
-import * as TB from "react-icons/tb";
+import Icon from '../components/ui/Icons';
 import Modal from 'react-modal';
 
 
@@ -19,24 +16,6 @@ function Languages() {
         setModalIsOpen(false);      
     };
     
-    // Fonction pour récupérer l'icône dynamiquement
-    const getIcon = (iconName) => {
-        if (SiIcons[iconName]) {
-            const Icon = SiIcons[iconName];
-            return <Icon className={styles.languageIcon} />;
-        } else if (FaIcons[iconName]) {
-            const Icon = FaIcons[iconName];
-            return <Icon className={styles.languageIcon} />;
-        } else if (DiIcons[iconName]) {
-            const Icon = DiIcons[iconName];
-            return <Icon className={styles.languageIcon} />;
-        } else if (TB[iconName]) { 
-            const Icon = TB[iconName];
-            return <Icon className={styles.languageIcon} />;
-        }
-        // Si aucune icône trouvée, retourne null
-        return null;
-    };
 
     useEffect(() => {
         // recuperation des langues depuis le backend
@@ -81,7 +60,7 @@ function Languages() {
     const languagesList = languages.map((language, index) => (
         <div key={index} className={styles.languageItem}>
             <div className={styles.iconContainer}>
-                {language.icon && getIcon(language.icon)}
+                {language.icon && <Icon name={language.icon} color={language.color} size={"3.5rem"}/>}
             </div>
             <h3>{language.name}</h3>
         </div>

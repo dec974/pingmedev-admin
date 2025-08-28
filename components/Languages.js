@@ -5,8 +5,6 @@ import Modal from '../components/ui/components/Modal';
 import Input from '../components/ui/components/InputText';
 import Button from '../components/ui/components/Button';
 
-
-
 function Languages() {
     const [languages, setLanguages] = useState([]);
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -14,12 +12,9 @@ function Languages() {
     const [color, setColor] = useState('');
     const [iconName, setIconName] = useState('');
     const [error, setError] = useState('');
-    
-
     const openModal = () => {
         setModalIsOpen(true);
     };
-
     const closeModal = () => {
         setModalIsOpen(false); 
         setName('');
@@ -27,7 +22,6 @@ function Languages() {
         setIconName(''); 
         setError('');    
     };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('submit');
@@ -35,7 +29,6 @@ function Languages() {
             setError('field is required');
             return;
         }
-
         fetch('http://localhost:3000/admin/languages/', {
             method: 'POST',
             headers: {'Content-type' : 'application/json'},
@@ -53,11 +46,8 @@ function Languages() {
                 console.log('error add language');
             }
         });
-
         closeModal();
     };
-    
-
     useEffect(() => {
         // recuperation des langues depuis le backend
         fetch('http://localhost:3000/admin/languages')
@@ -73,31 +63,6 @@ function Languages() {
                 console.error('Erreur lors de la récupération des langues:', error);
             });
     }, []);
-
-    const customStyles = {
-        content: {
-            top: '50%',
-            left: '50%',
-            right: 'auto',
-            bottom: 'auto',
-            marginRight: '-50%',
-            transform: 'translate(-50%, -50%)',
-            display: 'flex',
-            flexDirection: 'column',
-        },
-        h2: {
-            marginBottom: '20px',
-            textAlign: 'center',
-            fontSize: '24px',
-            color: '#333',
-        },
-        form: {
-            display: 'flex',    
-            flexDirection: 'column',
-            gap: '10px',
-        },
-    }
-
     const languagesList = languages.map((language, index) => (
         <div key={index} className={styles.languageItem}>
             <div className={styles.iconContainer}>
@@ -106,7 +71,6 @@ function Languages() {
             <h3>{language.name}</h3>
         </div>
     ));
-
     return(
         <div>
             <h1>Languages Page</h1>
@@ -167,5 +131,4 @@ function Languages() {
         </div>
     );
 };
-
 export default Languages;

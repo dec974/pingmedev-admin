@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import Spinner from '../components/ui/components/Spinner';
 import Modal from 'react-modal';
 import { useRouter } from 'next/router';
+import Button from './ui/components/Button';
 
 const customStyles = {
     content: {  
@@ -128,7 +129,7 @@ function Users() {
         <>
             <div className={styles.header}>
                 <h1>Liste des utilisateurs</h1>
-                <button className={styles.addUserButton} onClick={() => handleOpenModal()}>Ajouter un utilisateur</button>
+                <Button onClick={() => handleOpenModal()}>New User</Button>
                 <Modal
                     isOpen={modalIsOpen}    
                     onRequestClose={handleCloseModal}

@@ -2,8 +2,7 @@ import '../styles/globals.css';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import DashboardLayout from '../components/layouts/DashboardLayout';
-import Spinner from '../components/ui/Spinner';
+import BaseLayout from '../components/ui/layouts/BaseLayout';
 
 function App({ Component, pageProps }) {
   const router = useRouter();
@@ -41,7 +40,7 @@ function App({ Component, pageProps }) {
   // Afficher un loader pendant la vérification d'authentification
   if (isLoading) {
     return (
-      <Spinner size={50} />
+      <div>Loading ...</div>
     );
   }
 
@@ -54,9 +53,9 @@ function App({ Component, pageProps }) {
       </Head>
       
       {shouldShowLayout ? (
-        <DashboardLayout>
+        <BaseLayout>
           <Component {...pageProps} />
-        </DashboardLayout>
+        </BaseLayout>
       ) : (
         <Component {...pageProps} />
       )}

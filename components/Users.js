@@ -1,6 +1,6 @@
 import styles from '../styles/Users.module.css';
 import { useState, useEffect, useRef } from 'react';
-import Spinner from './ui/Spinner';
+import Spinner from '../components/ui/components/Spinner';
 import Modal from 'react-modal';
 import { useRouter } from 'next/router';
 

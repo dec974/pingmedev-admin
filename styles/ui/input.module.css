@@ -1,0 +1,24 @@
+.input {
+    width:100%;
+    padding:8px 11px;
+    border-radius:var(--border-radius);
+    border:1.5px solid var(--secondary-blue); 
+    margin-bottom:11px;
+    font-family:var(--font-body); 
+    font-size:1rem; 
+    transition:border-color .2s; 
+    background:var(--light-blue);
+    outline:none;
+}
+
+.input:focus{
+    border-color:var(--accent-orange);
+    background:var(--white);
+}
+
+.label {
+    display:block;
+    margin-bottom:5px;
+    font-weight: 500;
+    color:var(--primary-blue);
+}

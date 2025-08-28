@@ -1,11 +1,114 @@
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: #f3f2f5;
+
+
+/* Reset & global box sizing */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
-* {
-  box-sizing: border-box;
+/* Root variables for light mode */
+:root {
+	--primary: #2563eb;
+	--danger: #d50100;
+	--warning: #d77a00;
+	--info: #3b82f6;
+	--success: #22c55e;
+	--secondary: #64748b;
+	--gray: #a1a1aa;
+	--black: #000000;
+	--bg: #f6f7fb;
+	--sidebar-bg: #fff;
+	--sidebar-text: #23272f;
+	--sidebar-active: #2563eb;
+	--navbar-bg: #2563eb;
+	--navbar-text: #fff;
+	--border: #c5c8cc;
+	--radius: 8px;
+	--badge-bg: #f1f5f9;
+	--text: var(--sidebar-text);
+	--shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+	--font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Dark mode overrides */
+[data-theme='dark'] {
+	--bg: #18181b;
+	--black: #fff;
+	--sidebar-bg: #15161a;
+	--sidebar-text: #f1f5f9;
+	--sidebar-active: #2563eb;
+	--navbar-bg: #23272f;
+	--navbar-text: #fff;
+	--border: #23272f;
+	--badge-bg: #23272f;
+	--text: var(--sidebar-text);
+	--shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+}
+
+/* Html & body */
+html,
+body,
+#__next {
+	height: 100%;
+	font-family: var(--font-family);
+	background-color: var(--bg);
+	color: var(--text);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transition: background-color 0.3s, color 0.3s;
+}
+
+/* Link styles */
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 600;
+	margin-bottom: 1rem;
+	color: var(--sidebar-text);
+}
+
+/* Paragraph */
+p {
+	margin-bottom: 1rem;
+	line-height: 1.5;
+	color: var(--sidebar-text);
+}
+
+/* Buttons: reset */
+button {
+	font-family: inherit;
+	font-size: 1rem;
+	cursor: pointer;
+	background: none;
+	border: none;
+	padding: 0;
+}
+
+/* Utility */
+.hidden {
+	display: none !important;
+}
+
+/* Scrollbar (optional for better UX) */
+body::-webkit-scrollbar {
+	width: 8px;
+}
+body::-webkit-scrollbar-thumb {
+	background-color: rgba(0, 0, 0, 0.15);
+	border-radius: 4px;
+}
+body::-webkit-scrollbar-track {
+	background: transparent;
 }

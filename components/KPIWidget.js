@@ -1,5 +1,5 @@
 import React from "react";
-import Card from './ui/Card';
+import Card from '../components/ui/components/Card';
 
 // Widget de base pour uniformiser l'affichage des KPIs avec le composant Card
 export function KPIWidget({ title, children }) {

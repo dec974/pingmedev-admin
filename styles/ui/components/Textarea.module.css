@@ -1,0 +1,30 @@
+.textarea {
+    padding: 0.5em 1em;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    background: inherit;
+    color: var(--text);
+    width: 100%;
+    max-width: 400px;
+    min-height: 100px;
+    margin-bottom: 0.8em;
+    transition: border 0.2s;
+    resize: vertical;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+.textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 4px var(--primary);
+    background-color: var(--bg);
+}
+
+.label {
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    display: inline-block;
+    color: var(--sidebar-text);
+}

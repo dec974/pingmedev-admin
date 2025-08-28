@@ -1,0 +1,35 @@
+.select {
+    padding: 0.5em 1em;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    background: inherit;
+    color: var(--text);
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 0.8em;
+    transition: border 0.2s;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%2323272f" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 1em center;
+    background-size: 1em 1em;
+    cursor: pointer;
+}
+
+.select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 4px var(--primary);
+    background-color: var(--bg);
+}
+
+.label {
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    display: inline-block;
+    color: var(--sidebar-text);
+}

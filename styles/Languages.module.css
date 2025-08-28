@@ -33,3 +33,18 @@
     color: #333;
     font-size: 18px;
 }
+
+.addLanguageButton{
+    background-color: #4caf50;
+    margin: 10px;
+    padding: 10px;
+    border:none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.modalLink {
+    color: var(--info);
+}

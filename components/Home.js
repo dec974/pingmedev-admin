@@ -1,7 +1,7 @@
 import styles from '../styles/Home.module.css';
-import Spinner from './ui/Spinner';
+import Spinner from '../components/ui/components/Spinner';
 import { useState, useEffect } from 'react';
-import Card from './ui/Card';
+import Card from '../components/ui/components/Card';
 import { FaUsers, FaEnvelope, FaChartBar } from 'react-icons/fa6';
 // Import des widgets KPI
 import {

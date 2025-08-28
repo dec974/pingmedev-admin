@@ -1,19 +1,60 @@
 import { useState, useEffect } from 'react';
 import styles from '../styles/Languages.module.css';
-import Icon from '../components/ui/Icons';
-import Modal from 'react-modal';
+import Icon from '../components/ui/components/Icons';
+import Modal from '../components/ui/components/Modal';
+import Input from '../components/ui/components/InputText';
+import Button from '../components/ui/components/Button';
+
 
 
 function Languages() {
     const [languages, setLanguages] = useState([]);
     const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [name, setName] = useState('');
+    const [color, setColor] = useState('');
+    const [iconName, setIconName] = useState('');
+    const [error, setError] = useState('');
+    
 
     const openModal = () => {
         setModalIsOpen(true);
     };
 
     const closeModal = () => {
-        setModalIsOpen(false);      
+        setModalIsOpen(false); 
+        setName('');
+        setColor('');
+        setIconName(''); 
+        setError('');    
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log('submit');
+        if(!name.trim() && !color.trim() && !iconName.trim()) {
+            setError('field is required');
+            return;
+        }
+
+        fetch('http://localhost:3000/admin/languages/', {
+            method: 'POST',
+            headers: {'Content-type' : 'application/json'},
+            body: JSON.stringify({
+                name,
+                color,
+                icon : iconName
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.result) {
+                console.log('add new language');
+            } else {
+                console.log('error add language');
+            }
+        });
+
+        closeModal();
     };
     
 
@@ -71,26 +112,52 @@ function Languages() {
             <h1>Languages Page</h1>
             <p>This is the languages management page.</p>
             <div className={styles.newLanguage}>
-                <button className={styles.addLanguageButton} onClick={openModal}>Add New Language</button>
-                <Modal
-                    isOpen={modalIsOpen}
-                    onRequestClose={closeModal}
-                    style={customStyles}
-                    contentLabel="Add New Language"
-                >
-                    <button onClick={closeModal}>Close</button>
-                    <h2>Add New Language</h2>
-                    {/* Formulaire pour ajouter une nouvelle langue */}
-                    <form>
-                        <label>
-                            Name:
-                            <input type="text" name="name" />
-                        </label>
-                        <label>
-                            Icon:
-                            <input type="text" name="icon" />
-                        </label>
-                        <button type="submit">Add Language</button>
+                <Button variant="primary" onClick={() => openModal()}>Nouveau langage</Button>
+                <Modal isOpen={modalIsOpen} onClose={() => closeModal()} title="Ajouter un langage">
+                    <p>
+                        Ajouter un nouveau langage a la liste déjà existant, 
+                        pour le choix de l'icone veuillez vous referer a celle de <a className={styles.modalLink} href="https://react-icons.github.io/react-icons/" target='_blank'>React Icons</a>
+                    </p>
+                    <form onSubmit={handleSubmit} noValidate>
+                        <div className={styles.formContent}>
+                            <Input
+                                label="Nom du langage"
+                                id="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                aria-invalid={!!error}
+                                aria-describedby={error ? 'error-message' : undefined}
+                            />
+                            <Input
+                                label="Icon"
+                                id="icon"
+                                value={iconName}
+                                onChange={(e) => setIconName(e.target.value)}
+                                aria-invalid={!!error}
+                                aria-describedby={error ? 'error-message' : undefined}
+                            />
+                            <Input
+                                label="Couleur"
+                                id="color"
+                                value={color}
+                                onChange={(e) => setColor(e.target.value)}
+                                aria-invalid={!!error}
+                                aria-describedby={error ? 'error-message' : undefined}
+                            />
+                        </div>
+                        {error && (
+                        <div id="error-message" style={{ color: 'red', marginTop: '0.25rem' }}>
+                            {error}
+                        </div>
+                        )}
+                        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '0.5rem' }}>
+                            <Button type="button" variant="secondary" onClick={closeModal}>
+                                Annuler
+                            </Button>
+                            <Button type="submit" variant="primary">
+                                Envoyer
+                            </Button>
+                        </div>
                     </form>
                 </Modal>
             </div>

@@ -1,0 +1,28 @@
+.buttonGroup {
+    display: inline-flex;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.buttonGroup > button {
+    border: none;
+    padding: 0.5em 1em;
+    background: var(--bg);
+    color: var(--sidebar-text);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.buttonGroup > button:hover,
+.buttonGroup > button:focus {
+    background: var(--primary);
+    color: white;
+    outline: none;
+}
+
+/* Gestion des boutons collés, pas de double bordure */
+.buttonGroup > button:not(:last-child) {
+    border-right: 1px solid var(--border);
+}

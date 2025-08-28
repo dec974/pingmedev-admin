@@ -1,0 +1,42 @@
+.tooltipWrapper {
+    position: relative;
+    display: inline-block;
+    cursor: default;
+}
+
+.tooltipText {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: var(--radius);
+    padding: 0.4rem 0.7rem;
+    position: absolute;
+    z-index: 1001;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    font-size: 0.75rem;
+    pointer-events: none;
+}
+
+.tooltipWrapper:hover .tooltipText,
+.tooltipWrapper:focus-within .tooltipText {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltipArrow {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333;
+}

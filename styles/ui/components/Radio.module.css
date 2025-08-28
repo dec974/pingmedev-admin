@@ -1,0 +1,28 @@
+.formCheck {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.8rem;
+    user-select: none;
+}
+
+.inputRadio {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: var(--primary);
+    transition: accent-color 0.3s;
+}
+
+.inputRadio:disabled {
+    cursor: not-allowed;
+    accent-color: gray;
+}
+
+.label {
+    cursor: pointer;
+    user-select: none;
+    color: var(--sidebar-text);
+    font-weight: 600;
+}

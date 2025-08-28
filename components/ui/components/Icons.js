@@ -1,4 +1,4 @@
-import styles from '../../styles/ui/icon.module.css';
+import styles from '../../../styles/ui/icon.module.css';
 import * as SiIcons from 'react-icons/si';
 import * as FaIcons from 'react-icons/fa';
 import * as Fa6Icons from 'react-icons/fa6';

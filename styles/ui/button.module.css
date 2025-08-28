@@ -1,0 +1,54 @@
+.btn {
+    font-family: var(--font-title);
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 12px 36px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 12px 12px 0 0;
+    box-shadow: var(--shadow);
+    position: relative;
+    outline: none;
+    transition: background .2s;
+}
+
+.primary {
+    background: var(--primary-blue);
+    color: var(--white);
+}
+
+.primary:hover {
+    background: var(--secondary-blue);
+}
+
+.secondary {
+    background: var(--accent-orange);
+    color: var(--white);
+}
+
+.secondary:hover {
+    background: #f49e7a;
+}
+
+.ternary {
+    background: transparent;
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
+}
+
+.ternary:hover {
+    background: var(--primary-blue);
+    color: var(--white); 
+}
+
+.ternary-alt {
+    background: transparent;
+    color: var(--accent-orange);
+    border: 2px solid var(--accent-orange);
+}
+
+.ternary-alt:hover {
+    background: var(--accent-orange);
+    color: var(--white); 
+}

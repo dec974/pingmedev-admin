@@ -1,0 +1,186 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 60px repeat(17, minmax(40px, auto)) 48px;
+    min-height: 100vh;
+    height: 100vh;
+    gap: 0;
+    background: var(--bg-color);
+}
+
+.header {
+    grid-column: 1 / span 12;
+    grid-row: 1 / 2;
+    background: var(--primary-blue);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+    font-family: var(--font-title);
+    font-weight: 300;
+    font-size: 1.6rem;
+    z-index: 2;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar {
+    grid-column: 1 / span 2;
+    grid-row: 2 / 20;
+    background: linear-gradient(180deg, var(--primary-blue) 70%, var(--accent-orange) 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    transition: grid-column 0.3s ease, width 0.3s ease, background-color 0.3s ease;
+    z-index: 1;
+}
+
+.sidebar.collapsed {
+    grid-column: 1 / span 1;
+    min-width: 60px;
+    max-width: 80px;
+    align-items: center;
+    padding: 1rem 0;
+    margin-right: 0;
+    transition: grid-column 0.3s ease, width 0.3s ease;
+}
+.sidebar button {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: #FFD587;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    border-radius: 7px;
+    padding: 4px 12px;
+    align-self: flex-end;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar button:hover {
+    background: rgba(255, 213, 130, 0.3);
+}
+
+.content {
+    grid-column: 3 / span 10;
+    grid-row: 2 / 19;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    margin-left: 0;
+    min-width: 0; 
+    min-height: 0;
+    overflow-y: auto;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contentExpanded {
+    grid-column: 2 / span 11; 
+    padding-left: 0;
+    margin-left: -80px;
+    transition: grid-column 0.3s ease;
+}
+
+.footer {
+    grid-column: 1 / span 12;
+    grid-row: 19 / 20;
+    background: linear-gradient(180deg, #BF775A 70%, var(--accent-orange) 100%);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+/* ... Partie desktop inchangée ... */
+
+/* Responsive tablette : sidebar passe horizontale en haut, grille 1 col */
+@media (max-width: 950px) {
+    .dashboardGrid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 60px 44px 1fr 48px; /* header, sidebar, content, footer */
+    }
+    .header {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+        border-radius: 0 0 18px 18px;
+    }
+    .sidebar,
+    .sidebar.collapsed {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: 44px;
+        min-width: 0;
+        max-width: none;
+        padding: 0 5px;
+        transition: none;
+    }
+    .sidebar button {
+        align-self: center;
+        margin-bottom: 0;
+        margin-right: 7px;
+    }
+    .sidebar nav {
+        flex-direction: row;
+        gap: 1rem;
+        font-size: 1rem;
+    }
+    .content {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+        min-height: 0;
+        border-radius: 18px;
+        margin-top: 0.5rem;
+    }
+    .footer {
+        grid-column: 1 / 2;
+        grid-row: 4 / 5;
+    }
+}
+
+/* Responsive mobile : padding réduit, tout en colonne, sidebar réduite à icônes */
+@media (max-width: 600px) {
+    .header, .footer {
+        font-size: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .content {
+        padding: 0.6rem 0.3rem;
+    }
+    .sidebar,
+    .sidebar.collapsed {
+        height: 38px;
+        font-size: .9em;
+        padding: 0 3px;
+    }
+    .sidebar nav {
+        gap: 0.5rem;
+    }
+    .sidebar button {
+        padding: 2px 7px;
+        font-size: 1em;
+    }
+}
+
+/* Cacher entièrement la sidebar sur mobile si désiré */
+@media (max-width: 430px) {
+    .sidebar, .sidebar.collapsed {
+        display: none;
+    }
+    .dashboardGrid {
+        grid-template-rows: 50px 1fr 38px;
+    }
+    .header {grid-row: 1 / 2;}
+    .content {grid-row: 2 / 3;}
+    .footer {grid-row: 3 / 4;}
+}

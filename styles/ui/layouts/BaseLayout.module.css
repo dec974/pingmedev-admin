@@ -1,0 +1,23 @@
+.gridLayout {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    grid-template-rows: 60px 1fr 40px;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    height: 100vh;
+    gap: 10px;
+    background-color: var(--bg);
+    transition: grid-template-columns 0.3s ease;
+}
+
+.gridLayoutCollapsed {
+    grid-template-columns: 60px 1fr;
+}
+.mainContent {
+    grid-area: main;
+    overflow-y: auto;
+    padding: 1.5rem;
+    background: var(--bg);
+}

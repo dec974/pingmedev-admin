@@ -1,0 +1,47 @@
+.inputGroup {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--bg);
+    user-select: none;
+}
+
+.inputGroupPrepend,
+.inputGroupAppend {
+    background-color: var(--border);
+    color: var(--sidebar-text);
+    padding: 0.5em 0.75em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: default;
+    user-select: none;
+}
+
+.inputGroupAppend {
+    border-left: 1px solid var(--border);
+}
+
+.inputGroupPrepend {
+    border-right: 1px solid var(--border);
+}
+
+.input {
+    flex: 1 1 auto;
+    border: none;
+    padding: 0.5em 0.75em;
+    font-size: 1rem;
+    color: var(--text);
+    background-color: transparent;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.input::placeholder {
+    color: var(--sidebar-text);
+    opacity: 0.7;
+}

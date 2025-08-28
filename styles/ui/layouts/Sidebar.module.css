@@ -1,0 +1,74 @@
+.sidebar {
+    grid-area: sidebar;
+    background: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: 1rem;
+    border-right: 1px solid var(--border);
+    overflow: hidden;
+    transition: width 0.3s ease, padding 0.3s ease;
+    width: 230px;
+}
+
+.sidebarCollapsed {
+    width: 60px !important;
+    padding: 1rem 0.4rem !important;
+}
+
+.navA {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.05rem;
+    padding: 0.6rem 1rem;
+    border-radius: var(--radius);
+    white-space: nowrap;
+    overflow: hidden;
+    transition: background-color 0.2s, color 0.2s;
+    cursor: pointer;
+}
+
+.navA:hover,
+.navA:focus {
+    background-color: var(--sidebar-active);
+    color: #fff;
+    outline: none;
+}
+
+.navAActive {
+    background-color: var(--sidebar-active);
+    color: #fff;
+    font-weight: 700;
+}
+
+.navALostText {
+    transition: opacity 0.25s, width 0.25s;
+    opacity: 1;
+    pointer-events: auto;
+    width: auto;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.sidebarCollapsed .navALostText {
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    overflow: hidden;
+}
+
+.icon {
+    width: 24px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: inherit;
+}
+
+/* Pour rendre l’icône plus visible à l’état actif */
+.navAActive .icon {
+    color: #fff;
+}

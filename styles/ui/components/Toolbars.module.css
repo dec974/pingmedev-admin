@@ -1,0 +1,10 @@
+.toolbar {
+    display: flex;
+    gap: 0.5rem;
+    background: var(--bg);
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    user-select: none;
+    flex-wrap: wrap;
+}

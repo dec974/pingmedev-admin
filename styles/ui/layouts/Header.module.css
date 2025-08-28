@@ -1,0 +1,109 @@
+.header {
+    grid-area: header;
+    background: var(--navbar-bg);
+    color: var(--navbar-text);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 0 1.5rem;
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.toggleSidebarBtn {
+    background: transparent;
+    border: none;
+    color: var(--navbar-text);
+    font-size: 1.6rem;
+    cursor: pointer;
+    padding: 0 0.3rem;
+    display: flex;
+    align-items: center;
+}
+
+/* .toggleSidebarBtn:focus {
+    outline: 2px solid var(--navbar-text);
+} */
+
+.toggleSwitch {
+    position: relative;
+    display: inline-block;
+    width: 56px;
+    height: 28px;
+    margin-left: auto;
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggleSwitch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.slider {
+    position: relative;
+    background-color: var(--border);
+    border-radius: 28px;
+    height: 100%;
+    transition: background-color 0.3s;
+}
+
+/* Cercle blanc coulissant du toggle */
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 22px;
+    width: 22px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+/* Quand toggle checked, fond bleu et cercle à droite */
+.toggleSwitch input:checked + .slider {
+    background-color: var(--primary);
+}
+
+.toggleSwitch input:checked + .slider:before {
+    transform: translateX(28px);
+}
+
+/* Icônes soleil et lune */
+.icon {
+    position: absolute;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    stroke: var(--sidebar-text);
+    transform: translateY(-50%);
+    transition: opacity 0.25s ease;
+    pointer-events: none;
+}
+
+.sun {
+    left: 8px;
+    opacity: 1;
+}
+
+.moon {
+    right: 8px;
+    opacity: 0;
+}
+
+/* Affichage icônes selon état */
+.toggleSwitch input:checked + .slider .sun {
+    opacity: 0;
+}
+
+.toggleSwitch input:checked + .slider .moon {
+    opacity: 1;
+}
+
+/* Focus sur toggle */
+.toggleSwitch input:focus + .slider {
+    box-shadow: 0 0 2px 3px var(--primary);
+}

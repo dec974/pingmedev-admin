@@ -1,0 +1,27 @@
+.alert {
+    border-radius: var(--border-radius);
+    padding: 16px 24px;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.info {
+    background: var(--primary-blue);
+    color: var(--white)
+}
+
+.success {
+    background: var(--bg-success);
+    color: var(--white);
+}
+
+.warm {
+    background: var(--bg-warm);
+    color: var(--text-warm);
+}
+
+.error {
+    background: var(--bg-error);
+    color: var(--white);
+}

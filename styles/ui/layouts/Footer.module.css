@@ -1,0 +1,11 @@
+.footer {
+    grid-area: footer;
+    background: var(--navbar-bg);
+    color: var(--navbar-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    height: 40px;
+    padding: 0 1rem;
+}

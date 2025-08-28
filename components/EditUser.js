@@ -1,7 +1,7 @@
 import styles from '../styles/EditUser.module.css';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import Spinner from './ui/Spinner';
+import Spinner from '../components/ui/components/Spinner';
 
 
 function EditUser(){

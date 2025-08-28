@@ -36,7 +36,7 @@ function Home() {
     errors: 1
   });
   useEffect(() => {
-    fetch('http://localhost:3000/admin/users/count')
+    fetch('https://pingmedev-backend.vercel.app/admin/users/count')
       .then(response => response.json())
       .then(data => {
         if (data.result) {
@@ -48,7 +48,7 @@ function Home() {
       .catch(error => {
         console.error('Error fetching user count:', error);
       });
-    fetch('http://localhost:3000/admin/posts/count')
+    fetch('https://pingmedev-backend.vercel.app/admin/posts/count')
       .then(response => response.json())
       .then(data => {
         if (data.result) {

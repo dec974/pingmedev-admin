@@ -29,7 +29,7 @@ function Languages() {
             setError('field is required');
             return;
         }
-        fetch('http://localhost:3000/admin/languages/', {
+        fetch('https://pingmedev-backend.vercel.app/admin/languages/', {
             method: 'POST',
             headers: {'Content-type' : 'application/json'},
             body: JSON.stringify({
@@ -50,7 +50,7 @@ function Languages() {
     };
     useEffect(() => {
         // recuperation des langues depuis le backend
-        fetch('http://localhost:3000/admin/languages')
+        fetch('https://pingmedev-backend.vercel.app/admin/languages')
             .then(response => response.json())
             .then(data => {
                 if (data.result) {

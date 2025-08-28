@@ -26,7 +26,7 @@ function Login() {
             password: password
         });
 
-        fetch('http://localhost:3000/admin/login', {
+        fetch('https://pingmedev-backend.vercel.app/admin/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ function Login() {
                                     const dataLoginGoogle = JSON.stringify({
                                         username: username
                                     });
-                                    fetch('http://localhost:3000/admin/login/google', {
+                                    fetch('https://pingmedev-backend.vercel.app/admin/login/google', {
                                         method: 'POST',
                                         headers: {
                                             'Content-Type': 'application/json',
@@ -108,7 +108,7 @@ function Login() {
                     <div className={styles.githubLogin}>
                         <button className={styles.githubButton} onClick={() => {
                             const clientID = 'Ov23liX1qR7miekPoKMN';
-                            const redirectURI = 'http://localhost:3001/auth/github/callback';
+                            const redirectURI = 'https://pingmedev-backend.vercel.app/auth/github/callback';
                             window.location.href = `https://github.com/login/oauth/authorize?client_id=${clientID}&redirect_uri=${redirectURI}`; 
                         }
                         }>

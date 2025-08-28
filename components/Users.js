@@ -41,7 +41,7 @@ function Users() {
     const userRef = useRef(null);
     useEffect(() => {
         // Fetch users from the backend
-        fetch('http://localhost:3000/admin/users')
+        fetch('https://pingmedev-backend.vercel.app/admin/users')
             .then(response => response.json())
             .then(data => {
                 if (data.result) {
@@ -99,7 +99,7 @@ function Users() {
             role: selectedRoles,
         });
 
-        fetch('http://localhost:3000/users/signup', {
+        fetch('https://pingmedev-backend.vercel.app/users/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

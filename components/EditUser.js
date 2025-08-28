@@ -16,7 +16,7 @@ function EditUser(){
             // Handle the case where userId is not available
             return;
         }
-        fetch(`http://localhost:3000/admin/users/${userId}`)
+        fetch(`https://pingmedev-backend.vercel.app/admin/users/${userId}`)
             .then(response => response.json())
             .then(data => {
                 if (data.result) {
@@ -37,7 +37,7 @@ function EditUser(){
         setLoading(true);
         setError(null);
         try {
-            const res = await fetch(`http://localhost:3000/admin/users/${userId}/promote`, {
+            const res = await fetch(`https://pingmedev-backend.vercel.app/admin/users/${userId}/promote`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
             });
